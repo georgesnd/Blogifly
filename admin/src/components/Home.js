@@ -1,7 +1,9 @@
 import logo from './images/logo.jpg'
 import {CgProfile} from 'react-icons/cg'
 import {Dropdown, DropdownButton} from 'react-bootstrap'
-import AddPost from './AddPost'
+// import AddPost from './AddPost'
+import '../stylesAdmin/admin.css'
+
 
 function Home() {
 
@@ -9,35 +11,46 @@ function Home() {
     <div className='adminHomeContainer'>
 
         <div className='dashBoardContainer'>
-        < img src={logo} alt='pic'/>
-
-        <div className='adminName'>
-        <h5> Admin Name</h5>
-        <CgProfile/>
+        
+        <div className='adminTop'>
+         < img className='logoImg' src={logo} alt='pic'/> 
+         <div className='adminName' >
+        <h5> Admin Name  <span><CgProfile/></span></h5>
+        
         </div>
 
-        <div className='sideCat'>
+        </div>
+
+        
             <h1>Blog Dashboard</h1>
+          <div className='adminBody'>  
+          <div className='sidecat'>
             <ul>
                 <li>BlogPost</li>
                 <li>Add new post</li>
                 <li></li>
             </ul> 
             <br/>
-
-            <DropdownButton id="dropdown-basic-button" title="Dropdown button">
-            <Dropdown.Item href="#/action-1">Travel</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Music</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Politics</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Movies</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Books</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Food</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Lifestyle</Dropdown.Item>
-            </DropdownButton>
+              <ul className='category'>
+                <li className='topCate'>CATEGORY</li>
+                <li>Travel</li>
+                <li>Music</li>
+                <li>Politics</li>
+                <li>Movies</li>
+                <li>Books</li>
+                <li>Food</li>
+                <li>Lifestyle</li>
+                <li>Makeup</li>
+              </ul>
+            
+            </div>
+           <div className='editor'></div>
+       
         </div>
 
         </div>
-        {/* <AddPost/> */}
+       
+        
     </div>
   )
 }

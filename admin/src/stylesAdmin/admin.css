@@ -1,0 +1,52 @@
+.adminHomeContainer h1 {
+    margin-left: 90px;
+}
+
+.logoImg {
+    width: auto;
+    height: 200px;
+    margin-right: 25%;
+}
+
+.adminTop {
+    display: flex;
+    justify-content: end;
+    margin-right: 30px;
+
+}
+.adminName {
+    padding-top: 50px;
+    font-size: 20px;
+}
+.adminName span {
+    margin-right: 10px;
+    padding: 16px;
+}
+
+.editor {
+    border: 2px solid gray;
+    height: 60vh;
+    width: 70%;
+}
+.adminBody{
+    display: flex;
+    width: 90%;
+    margin-left: 10%; 
+     
+    
+}
+.sidecat {
+    padding: 10px;
+    border: 2px solid gray;
+    margin-right: 100px;
+    width: 200px;
+
+}
+.sidecat li {
+    list-style: none;
+    padding-left: -2px;
+}
+.category {
+    font-size: 20px;
+    line-height: 25px;
+}
