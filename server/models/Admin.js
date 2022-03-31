@@ -1,9 +1,10 @@
 const mongoose = require('mongoose')
 const {Schema} = mongoose
-
+const jwt = require ('jsonwebtoken') 
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+
 
 
 const adminSchema =new Schema ({
@@ -65,8 +66,8 @@ adminSchema.methods.generateToken = async function() {
 
     const admin = this;
 
-    const token = jwt.sign({id: admin._id.toHexString()}, process.env.SECRET, {
-        expiresIn: process.env.TOKEN_EXP
+    const token = jwt.sign({id: admin._id.toHexString()}, process.env.JWT_SECRET, {
+        expiresIn: process.env.TOKEN_EXP 
     })
   
     admin.token = token;
