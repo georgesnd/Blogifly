@@ -1,12 +1,13 @@
 const express = require("express");
-
-const PORT = process.env.PORT || 7000;
-
 const app = express();
+require("dotenv").config() 
+const PORT = process.env.PORT || 6000;
 
-app.get("/api", (req, res) => {
-  res.json({ message: "Hello from server!" });
-});
+app.use(express.json())  
+app.use('/admin', require('./Routes/AdminRoutes'));
+
+const connectToDb= require("./config/db")
+connectToDb() 
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
