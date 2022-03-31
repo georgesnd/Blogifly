@@ -11,10 +11,7 @@
     "admin": "npm run start --prefix admin",
     "reader": "npm run start --prefix reader",
     "dev": "concurrently \"npm run server\" \"npm run admin\" \"npm run reader\""
-=======
-    "dev": "nodemon server.js"
-
-  },
+  }, 
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TanyaDT/Blogifly.git"
