@@ -1,0 +1,7 @@
+.blogpostCard {
+  width: 300px;
+  height: 300px;
+  border: solid 2px gainsboro;
+  border-radius: 20px;
+  margin: 25px 0;
+}

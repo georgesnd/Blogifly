@@ -1,0 +1,9 @@
+/* main > img {
+  margin-bottom: 800px;
+} */
+
+.blogpostCard-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
