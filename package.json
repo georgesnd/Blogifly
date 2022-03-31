@@ -6,10 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/index.js",
+
     "server": "nodemon server/index.js",
     "admin": "npm run start --prefix admin",
     "reader": "npm run start --prefix reader",
     "dev": "concurrently \"npm run server\" \"npm run admin\" \"npm run reader\""
+=======
+    "dev": "nodemon server.js"
+
   },
   "repository": {
     "type": "git",
