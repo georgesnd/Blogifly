@@ -25,26 +25,53 @@ const {setUserData} = useContext(UserContext)
              navigate('/home') }  
     }
 
-    return <div className='container'>
-     <article className="sign-up">
-    <h1 className="sign-up__title">Welcome back!</h1>
-    <p className="sign-up__subtitle">Sign in to your account to continue</p>
-    <form onSubmit={handleClick} className="sign-up-form form" action="" method="">
-      <label className="form-label-wrapper">
-        <p className="form-label">Email</p>
-        <input value={data.email} onChange={e=> setData({...data, email:e.target.value})} className="form-input" type="email" placeholder="Enter your email" required />
-      </label>  
-      <label className="form-label-wrapper">
-        <p className="form-label">Password</p>
-        <input value={data.pass} onChange={e=> setData({...data, pass:e.target.value})} className="form-input" type="password" placeholder="Enter your password" required/>
-      </label>
-      <a className="link-info forget-link" href="##">Forgot your password?</a>
-      <label className="form-checkbox-wrapper">  
-        <input className="form-checkbox" type="checkbox" />
-        <span className="form-checkbox-label">Remember me next time</span>
-      </label>
-      <button className="form-btn primary-default-btn transparent-btn">Sign in</button>
-    </form>
-  </article>
-    </div>
+    return (
+      <div className="container">
+        <article className="sign-up">
+          <h1 className="sign-up__title">Welcome back!</h1>
+          <p className="sign-up__subtitle">
+            Sign in to your account to continue
+          </p>
+          <form
+            onSubmit={handleClick}
+            className="sign-up-form form"
+            action=""
+            method=""
+          >
+            <label className="form-label-wrapper">
+              <p className="form-label">Email</p>
+              <input
+                value={data.email}
+                onChange={(e) => setData({ ...data, email: e.target.value })}
+                className="form-input"
+                type="email"
+                placeholder="Enter your email"
+                required
+              />
+            </label>
+            <label className="form-label-wrapper">
+              <p className="form-label">Password</p>
+              <input
+                value={data.pass}
+                onChange={(e) => setData({ ...data, pass: e.target.value })}
+                className="form-input"
+                type="password"
+                placeholder="Enter your password"
+                required
+              />
+            </label>
+            <a className="link-info forget-link" href="##">
+              Forgot your password?
+            </a>
+            <label className="form-checkbox-wrapper">
+              <input className="form-checkbox" type="checkbox" />
+              <span className="form-checkbox-label">Remember me next time</span>
+            </label>
+            <button className="form-btn primary-default-btn transparent-btn">
+              Sign in
+            </button>
+          </form>
+        </article>
+      </div>
+    );
 } 
