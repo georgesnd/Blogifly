@@ -12,7 +12,7 @@ ReactDOM.render(
   <UserProvider>
     <BrowserRouter>
     <Switch>
-        <Route path='/home' exact component={Home}/>
+        <Route path='/' exact component={Home}/>
         <Route path='/profile' exact component={Profile}/>
         <Route path='/addpost' exact component={AddPost}/>
     </Switch>

@@ -11,6 +11,7 @@ import {GiAirplaneDeparture, GiEyelashes} from 'react-icons/gi'
 import {BiMoviePlay, BiBook} from 'react-icons/bi'
 import {BsPeople} from 'react-icons/bs'
 import {MdOutlineFastfood} from 'react-icons/md'
+import AddPost from './AddPost'
 
 
 
@@ -48,7 +49,7 @@ function Home() {
             <span><CgProfile/></span>
              </div>
         </div>
-          <div className='editor'></div>
+          <div className='editorborder'> <AddPost className='editor'/></div>
       </div>  
         
     </div>

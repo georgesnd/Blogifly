@@ -11,7 +11,7 @@ export default function AddPost () {
     const [tag, setTag] = useState('')
 
     const [data, setData] = useState({
-        owner: userData._id,
+        owner:'',
         body: '',
         title: '',
         subtitle: '',
@@ -58,12 +58,12 @@ export default function AddPost () {
         setData({...oldData})
     }
 
-    return <div className="container">
+    return <div className="editor">
 
         <input placeholder='Type the title' value={data.title} onChange={e=> setData({...data, title: e.target.value})}/>
         <input placeholder='Type the subtitle' value={data.subtitle} onChange={e=> setData({...data, subtitle: e.target.value})}/>
 
-    <Editor
+    <Editor 
          onInit={(evt, editor) => editorRef.current = editor}
          initialValue=""
          init={{
@@ -99,7 +99,7 @@ export default function AddPost () {
        </div>
 
         <div style={{display: 'flex', justifyContent: "flex-end"}}>
-            <Link to="/home">Home</Link>
+            <Link to="/#">Home</Link>
         <button onClick={handleSave}>Save</button>
         </div>
     </div>

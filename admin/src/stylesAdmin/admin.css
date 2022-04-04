@@ -8,6 +8,7 @@
 .adminHomeContainer {
     display: flex;
     font-family: 'Red Hat Mono', monospace;
+    overflow-y: hidden;
 }
 
 .logoImg {
@@ -38,25 +39,37 @@
 }
 
 .editor {
-    border: 2px solid gray;
+    /* border: 5px solid rgb(101, 83, 160); */
     height: 60vh;
-    width: 70%;
-    margin-left: 9%;
+    width: 70%;   
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    padding: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 7px 8px #A85CC4, inset -2px -2px 10px 10px #A85CC4;
     
 }
+
 .adminBody{
-    padding-left: 10%; 
+    /* padding-left: 10%;  */
     width: 80%;
    
 }
 .sidecat {
   
-    border: 2px solid gray;
+  
     width: 20%;
     background-color: #50287E;
-    height: 100vh;
+    height: 96vh;
     color: gold;
     padding-top: 2%;
+    overflow-y: hidden;
+    text-shadow: 1px 1px 2px  rgb(236, 173, 37);
+    box-shadow: inset -8px 0px 18px 0px rgb(189, 188, 188);
+    
 
 }
 .sidecat li {
