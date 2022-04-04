@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const Admin = require('../models/Admin')
 
-module.exports = (req, res) =>{
+module.exports = async(req, res) =>{
     try {
      
         const token = req.cookies.recapcookie
