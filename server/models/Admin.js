@@ -75,5 +75,7 @@ adminSchema.methods.generateToken = async function() {
     return admin
 }
 
+
+
 const Admin= mongoose.model('Admin', adminSchema)
 module.exports = Admin

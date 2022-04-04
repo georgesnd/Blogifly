@@ -18,6 +18,9 @@ exports.Login = async (req, res) => {
         const passMatch = await user.comparePassword(pass, user.pass)
         
         if (!passMatch) return res.send({success: false, errorId: 3}) // passwords don't match
+        const adminWithToken = user.generateToken(); 
+        console.log('Admin with Token', adminWithToken);
+
         const token = await user.generateToken('1d');
 
         // user = user.toObject();

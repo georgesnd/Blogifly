@@ -1,9 +1,10 @@
 import {useState} from 'react'
 import axios from 'axios'
-import './Login.css'; 
+import './Login.scss'; 
 import {useNavigate} from 'react-router-dom'; 
 import { useContext } from 'react';
-import { UserContext} from './context' 
+import { UserContext} from './context' ;
+import Logo from './images/logo.jpg'
 
 export default function Login() {
     const navigate =useNavigate()
@@ -26,7 +27,11 @@ const {setUserData} = useContext(UserContext)
     }
 
     return (
+      <div className="login">
       <div className="container">
+      <div className="logo">
+      <img src={Logo} alt="" /> 
+    </div>  
         <article className="sign-up">
           <h1 className="sign-up__title">Welcome back!</h1>
           <p className="sign-up__subtitle">
@@ -73,5 +78,6 @@ const {setUserData} = useContext(UserContext)
           </form>
         </article>
       </div>
+      </div> 
     );
 } 

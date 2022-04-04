@@ -1,9 +1,10 @@
 import {useState} from 'react'
 import axios from 'axios'
-import './Login.css'; 
+import './Login.scss'; 
 import {useNavigate} from 'react-router-dom'; 
 import { useContext } from 'react';
-import { UserContext} from './context' 
+import { UserContext} from './context';
+import Logo from './images/logo.jpg'; 
 
 export default function Register() {
     const navigate =useNavigate()
@@ -26,10 +27,16 @@ const {setUserData} = useContext(UserContext)
              navigate('/home') }  
     }
 
-    return <div className='container'>
+    return<div className="login">  
+    
+    <div className='container'>
+    <div className="logo">
+      <img src={Logo} alt="" /> 
+    </div> 
      <article className="sign-up">
     <h1 className="sign-up__title">Get started</h1>
     <p className="sign-up__subtitle">Start creating the best possible user experience for you customers</p>
+    
     <form onSubmit={handleClick} className="sign-up-form form" action="" method="">
     <label className="form-label-wrapper">
         <p className="form-label">Admin Name</p>
@@ -53,4 +60,5 @@ const {setUserData} = useContext(UserContext)
     </form>
   </article>
     </div>
+    </div> 
 } 
