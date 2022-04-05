@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-const commentSchema= new Schema ( {
+const commentSchema= new Schema ({
     owner: {
       type: Schema.Types.ObjectId,
       ref: "User",
@@ -8,8 +8,10 @@ const commentSchema= new Schema ( {
     text: {
       type: String,
     },
-  },
-)
+    likes: {
+      type:[]
+    }, 
+  })
 const postSchema = new Schema({
   title: String,
   subTitle: String,

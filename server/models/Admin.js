@@ -30,6 +30,9 @@ const adminSchema =new Schema ({
     }, 
     image: {
         type: String
+    },
+    token: {
+        type: String
     }
 })
 // Middleware 'pre'; before save to user collection
