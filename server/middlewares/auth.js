@@ -1,13 +1,16 @@
 const jwt = require('jsonwebtoken')
 const Admin = require('../models/Admin')
 
-module.exports = (req, res) =>{
+module.exports = async(req, res, next) =>{
     try {
      
         const token = req.cookies.recapcookie
         console.log('auth here, token is', token);
+        if(!token) return res.status(400).send({success:false})
+
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
         console.log('auth : decoded is', decoded);
+        if(!decoded) return res.status(400).send({success:false}) 
 
         const admin = await Admin.findById(decoded.id)
         if(!admin) return res.send({success:false})
@@ -15,6 +18,6 @@ module.exports = (req, res) =>{
         next()
 
     } catch (error) {
-        res.send(error.message)
+        res.status(400).send(error.message)
     }
-}
+} 
