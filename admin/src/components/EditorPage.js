@@ -1,6 +1,5 @@
 import logo from './images/logo.jpg'
 import {CgProfile} from 'react-icons/cg'
-// import {Dropdown, DropdownButton} from 'react-bootstrap'
 import '../stylesAdmin/admin.css'
 import DropDown from './DropDown'
 import {AiOutlineHome} from 'react-icons/ai'
@@ -10,11 +9,11 @@ import {GiAirplaneDeparture, GiEyelashes} from 'react-icons/gi'
 import {BiMoviePlay, BiBook} from 'react-icons/bi'
 import {BsPeople} from 'react-icons/bs'
 import {MdOutlineFastfood} from 'react-icons/md'
-import HomeContent from './HomeContent'
+import AddPost from './AddPost'
 
 
 
-function Home() {
+function EditorPage() {
 
   return (
     <div className='adminHomeContainer'>
@@ -48,13 +47,13 @@ function Home() {
             <span><CgProfile/></span>
              </div>
         </div>
-          <div className='homeContent'><HomeContent/> </div>
+          <div className='editorborder'> <AddPost/></div>
       </div>  
         
     </div>
   )
 }
 
-export default Home
+export default EditorPage
 
 

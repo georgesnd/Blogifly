@@ -7,6 +7,7 @@ import AddPost from './components/AddPost'
 import Login from './components/Login'
 import Register from './components/Register'
 import Home from './components/Home'
+import EditorPage from './components/EditorPage'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/addpost'  element={<AddPost />}/>
         {/* <Route path= '/login' exact element={<Login />} />   */}
         <Route path= '/register'  element={<Register/>} /> 
+        <Route path= '/editor'  element={<EditorPage/>} /> 
     </Routes> 
     </div>
   )  

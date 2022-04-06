@@ -3,12 +3,12 @@ import axios from 'axios'
 import './Login.scss'; 
 import {useNavigate} from 'react-router-dom'; 
 import { useContext } from 'react';
-import { UserContext} from './context' ;
+import { AdminContext} from './context' ;
 import Logo from './images/logo.jpg'
 
 export default function Login() {
     const navigate =useNavigate()
-const {setUserData} = useContext(UserContext) 
+const {setAdminData} = useContext(AdminContext) 
 
     const [data, setData] = useState({
         email: '',
@@ -22,7 +22,7 @@ const {setUserData} = useContext(UserContext)
         console.log('reponse is ', response)
 
         if(response.data.success===true) 
-        {setUserData(response.data.user)
+        {setAdminData({...response.data.user})
              navigate('/home') }  
     }
 

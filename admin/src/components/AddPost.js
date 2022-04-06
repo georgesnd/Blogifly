@@ -1,18 +1,17 @@
 import { Editor } from '@tinymce/tinymce-react';
 import axios from 'axios'
 import { useRef, useState, useContext } from 'react';
-// import { AdminContext } from './AdminContext';
 import {Link} from 'react-router-dom'
-import { UserContext } from './context';
+import { AdminContext } from './context';
 
 export default function AddPost () {
-    const {adminData, setAdminData} = useContext(UserContext)
+    const {adminData, setAdminData} = useContext(AdminContext)
     //Context
-    // const {adminData, setAdminData} = useContext(AdminContext)
+    
     const [tag, setTag] = useState('')
 
     const [data, setData] = useState({
-        owner:adminData._id,
+        owner: null,
         body: '',
         title: '',
         subtitle: '',
@@ -27,10 +26,11 @@ export default function AddPost () {
         if (editorRef.current.getContent()) {
             // setData({...data, body: editorRef.current.getContent()})
             console.log('Hande Save:', editorRef.current.getContent())
-    
+            console.log("Admin is:",adminData)
             console.log('data is', data)
+            data.owner = adminData._id
     
-            const response = await axios.post('/posts/add', data)
+            const response = await axios.post('/post/create', data)
     
             console.log('response is', response)
         }
@@ -69,7 +69,7 @@ export default function AddPost () {
          initialValue=""
          init={{
            height: 500,
-           menubar: false,
+           menubar: true,
            plugins: [
              'advlist autolink lists link image charmap print preview anchor',
              'searchreplace visualblocks code fullscreen',
@@ -100,7 +100,7 @@ export default function AddPost () {
        </div>
 
         <div style={{display: 'flex', justifyContent: "flex-end"}}>
-            <Link to="/#">Home</Link>
+            <Link to="/home">Home</Link>
         <button onClick={handleSave}>Save</button>
         </div>
     </div>
