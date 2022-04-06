@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 const {Schema} = mongoose
-
+const jwt = require ('jsonwebtoken') 
 
 const bcrypt = require('bcrypt');
-const { Next } = require('react-bootstrap/esm/PageItem');
 const saltRounds = 10;
+
 
 
 const adminSchema =new Schema ({
@@ -29,6 +29,9 @@ const adminSchema =new Schema ({
         type: String
     }, 
     image: {
+        type: String
+    },
+    token: {
         type: String
     }
 })
@@ -61,6 +64,21 @@ adminSchema.pre('save', function(next){
 adminSchema.methods.comparePassword = async (providedPass, dbPass)=> {
   return await  bcrypt.compare( providedPass, dbPass)
 }
+
+adminSchema.methods.generateToken = async function() {
+
+    const admin = this;
+
+    const token = jwt.sign({id: admin._id.toHexString()}, process.env.JWT_SECRET, {
+        expiresIn: process.env.TOKEN_EXP 
+    })
+  
+    admin.token = token;
+    await admin.save()
+    return admin
+}
+
+
 
 const Admin= mongoose.model('Admin', adminSchema)
 module.exports = Admin

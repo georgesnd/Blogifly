@@ -1,24 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom'
 import UserProvider from './components/context';
 import App from './App';
-import Home from './components/Home'
- import Profile from './components/Profile'
- import AddPost from "./components/AddPost"
-
 ReactDOM.render(
+  <React.StrictMode>
   <UserProvider>
     <BrowserRouter>
-    <Switch>
-        <Route path='/home' exact component={Home}/>
-        <Route path='/profile' exact component={Profile}/>
-        <Route path='/addpost' exact component={AddPost}/>
-    </Switch>
-    
       <App/>
     </BrowserRouter>
-  </UserProvider>,
+  </UserProvider>
+  </React.StrictMode>,
   document.getElementById('root')
 );
+
