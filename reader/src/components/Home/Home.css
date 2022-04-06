@@ -1,9 +1,17 @@
-/* main > img {
-  margin-bottom: 800px;
-} */
+main > img {
+  /*margin-bottom: 800px;*/
+  border-bottom: solid 5px gainsboro;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+}
 
 .blogpostCard-container {
+  width: 950px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  padding: 25px 0 50px;
 }

@@ -1,7 +1,55 @@
 .blogpostCard {
-  width: 300px;
-  height: 300px;
-  border: solid 2px gainsboro;
-  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 330px;
+  height: 330px;
+  /*border: solid 1px gainsboro;*/
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
   margin: 25px 0;
+  padding: 30px 30px 20px 30px;
+}
+
+/*.blogpostCard:hover {
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}*/
+
+.blogpostCard-title {
+  color: #7D9B76;
+  font-weight: 500;
+  margin: 0 0 6px;
+}
+
+.blogpostCard-date {
+  color: gray;
+  margin: 0 0 30px;
+  font-style: italic;
+}
+
+.blogpostCard-text {
+  background-image:linear-gradient(180deg, #272727, #27272700);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-readmore {
+  text-decoration: none;
+  color: gray;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 7px 14px;
+  border: solid 1px gray;
+  border-radius: 5px;
+}
+
+.btn-readmore:hover {
+  background-color: #272727;
+  color: #F6F6E9;
 }
