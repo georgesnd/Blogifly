@@ -9,10 +9,6 @@ header {
   border-bottom: solid 5px gainsboro;
 }
 
-header > img {
-  border-top-left-radius: 3px;
-}
-
 ul {
   display: flex;
   list-style: none;
@@ -25,7 +21,7 @@ li {
 header > nav > ul > li > a {
   text-decoration: none;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 500;
   color: #F6F6E9;
 }
 
