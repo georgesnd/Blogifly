@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { createContext, useState } from 'react' 
 
 
-export const UserContext = createContext()
+export const AdminContext = createContext()
 export default function UserProvider({children}) {
-    const [adminData, setAdminData] = useState(null)
+    const [adminData, setAdminData] = useState(localStorage.getItem("adminData"))
 
-    return <UserContext.Provider value = {{adminData, setAdminData}}>
+    useEffect(() => {
+        localStorage.setItem("adminData", JSON.stringify(adminData))
+    },[adminData])
+
+    return <AdminContext.Provider value = {{adminData, setAdminData}}>
         {children}
-    </UserContext.Provider>
+    </AdminContext.Provider>
 }
