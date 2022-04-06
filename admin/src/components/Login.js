@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import axios from 'axios'
 import './Login.scss'; 
-import {useNavigate} from 'react-router-dom'; 
+import {Link, useNavigate} from 'react-router-dom'; 
 import { useContext } from 'react';
 import { AdminContext} from './context' ;
 import Logo from './images/logo.jpg'
@@ -65,9 +65,12 @@ const {setAdminData} = useContext(AdminContext)
                 required
               />
             </label>
+       
             <a className="link-info forget-link" href="##">
               Forgot your password?
             </a>
+            
+           
             <label className="form-checkbox-wrapper">
               <input className="form-checkbox" type="checkbox" />
               <span className="form-checkbox-label">Remember me next time</span>
@@ -75,6 +78,10 @@ const {setAdminData} = useContext(AdminContext)
             <button className="form-btn primary-default-btn transparent-btn" onClick={handleClick}>
               Sign in
             </button>
+            <button className="form-btn primary-default-btn transparent-btn" style={{marginTop:"0.5rem"}} onClick={()=>{navigate('/register')}}>
+              Register
+            </button> 
+
           </form>
         </article>
       </div>
