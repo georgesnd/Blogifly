@@ -18,19 +18,27 @@ exports.Login = async (req, res) => {
         const passMatch = await user.comparePassword(pass, user.pass)
         
         if (!passMatch) return res.send({success: false, errorId: 3}) // passwords don't match
-        const adminWithToken = user.generateToken(); 
+        
+        const adminWithToken = await user.generateToken(); 
         console.log('Admin with Token', adminWithToken);
 
-        const token = await user.generateToken('1d');
+        user = user.toObject();
+        delete user.pass;
+        delete user.token; 
+
+        // const token = await user.generateToken('1d'); 
+        res.cookie('cookiename', adminWithToken.token).send({success: true, user}) 
+
+        
 
         // user = user.toObject();
         // delete user.pass;
         // delete user.token;
         // res.cookie('cookiename', token).send({success: true, user})
-        const updatedAdmin= user.toObject()
-        delete updatedAdmin.pass
-        delete updatedAdmin.token
-        res.cookie('cookiename', token).send({success: true, user: {...updatedAdmin}})
+        // const updatedAdmin= user.toObject()
+        // delete updatedAdmin.pass
+        // delete updatedAdmin.token
+        // res.cookie('cookiename', token).send({success: true, user: {...updatedAdmin}})
         
     } catch (error) {
         

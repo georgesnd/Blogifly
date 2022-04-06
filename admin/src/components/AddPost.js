@@ -1,17 +1,18 @@
 import { Editor } from '@tinymce/tinymce-react';
 import axios from 'axios'
 import { useRef, useState, useContext } from 'react';
-import { UserContext } from './context';
+// import { AdminContext } from './AdminContext';
 import {Link} from 'react-router-dom'
+import { UserContext } from './context';
 
 export default function AddPost () {
-
+    const {adminData, setAdminData} = useContext(UserContext)
     //Context
-    const {userData, setUserData} = useContext(UserContext)
+    // const {adminData, setAdminData} = useContext(AdminContext)
     const [tag, setTag] = useState('')
 
     const [data, setData] = useState({
-        owner:'',
+        owner:adminData._id,
         body: '',
         title: '',
         subtitle: '',
