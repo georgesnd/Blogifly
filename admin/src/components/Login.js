@@ -38,7 +38,7 @@ const {setUserData} = useContext(UserContext)
             Sign in to your account to continue
           </p>
           <form
-            onSubmit={handleClick}
+            // onSubmit={handleClick}
             className="sign-up-form form"
             action=""
             method=""
@@ -72,7 +72,7 @@ const {setUserData} = useContext(UserContext)
               <input className="form-checkbox" type="checkbox" />
               <span className="form-checkbox-label">Remember me next time</span>
             </label>
-            <button className="form-btn primary-default-btn transparent-btn">
+            <button className="form-btn primary-default-btn transparent-btn" onClick={handleClick}>
               Sign in
             </button>
           </form>

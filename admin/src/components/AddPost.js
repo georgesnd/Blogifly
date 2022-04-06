@@ -1,17 +1,18 @@
 import { Editor } from '@tinymce/tinymce-react';
 import axios from 'axios'
 import { useRef, useState, useContext } from 'react';
-import { UserContext } from './context';
+// import { AdminContext } from './AdminContext';
 import {Link} from 'react-router-dom'
+import { UserContext } from './context';
 
 export default function AddPost () {
-
+    const {adminData, setAdminData} = useContext(UserContext)
     //Context
-    const {userData, setUserData} = useContext(UserContext)
+    // const {adminData, setAdminData} = useContext(AdminContext)
     const [tag, setTag] = useState('')
 
     const [data, setData] = useState({
-        owner: userData._id,
+        owner:adminData._id,
         body: '',
         title: '',
         subtitle: '',
@@ -58,12 +59,12 @@ export default function AddPost () {
         setData({...oldData})
     }
 
-    return <div className="container">
+    return <div className="editor">
 
         <input placeholder='Type the title' value={data.title} onChange={e=> setData({...data, title: e.target.value})}/>
         <input placeholder='Type the subtitle' value={data.subtitle} onChange={e=> setData({...data, subtitle: e.target.value})}/>
 
-    <Editor
+    <Editor 
          onInit={(evt, editor) => editorRef.current = editor}
          initialValue=""
          init={{
@@ -99,7 +100,7 @@ export default function AddPost () {
        </div>
 
         <div style={{display: 'flex', justifyContent: "flex-end"}}>
-            <Link to="/home">Home</Link>
+            <Link to="/#">Home</Link>
         <button onClick={handleSave}>Save</button>
         </div>
     </div>

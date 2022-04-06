@@ -4,17 +4,14 @@ import './index.css';
 import {BrowserRouter} from 'react-router-dom'
 import UserProvider from './components/context';
 import App from './App';
-
- 
-
-ReactDOM.render( 
+ReactDOM.render(
   <React.StrictMode>
   <UserProvider>
-    <BrowserRouter> 
+    <BrowserRouter>
       <App/>
     </BrowserRouter>
   </UserProvider>
-  </React.StrictMode>, 
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
