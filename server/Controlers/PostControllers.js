@@ -2,11 +2,11 @@ const Post = require("../models/Post");
 
 exports.createPost= async (request, res) => {
     try {
-        const newPost = new Post(request.body)
-        await newPost.save()
+        const newPost = await Post.create(request.body)
         return res.json(newPost)
 
     } catch (error) {
+        console.log(error)
         return res.status(500).send(error)
     }
 }
@@ -25,7 +25,7 @@ exports.deletePost= async(request,res) => {
 exports.editPost= async(request,res) => {
 try {
     const{postId}= request.params 
-    const modifiedPost = await Post.findByIdAndUpdate(postId, request.body, {returnDocument:'after'}).exec() 
+    const modifiedPost = await Post.findByIdAndUpdate(postId, request.body, {returnDocument:'after'}).populate("owner").exec() 
     return res.json(modifiedPost)
 
 } catch (error) {
@@ -35,8 +35,9 @@ try {
 }
 
 exports.listPosts= async(request,res) => {
+    const owner = request.query.owner
     try {
-        const posts = await Post.find(request.params).exec()
+        const posts = await Post.find({owner}).populate("owner").sort({updatedAt: "desc"}).exec()
         return res.json(posts)
     } catch (error) {
         return res.status(500).send(error)  
@@ -77,8 +78,9 @@ exports.addComment=async(request, res) => {
 
 exports.deleteComment= async(request, res) => {
     try {
-            const{commentId}= request.params 
-            await Post.findByIdAndDelete(commentId).exec()
+        console.log("in delete Comment")
+            const{commentId, postId}= request.params 
+            await Post.findByIdAndUpdate(postId, {$pullAll:{comments:[commentId]}})
             res.sendStatus(200) 
             
         } catch (error) {

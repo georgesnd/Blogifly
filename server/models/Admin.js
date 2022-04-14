@@ -33,7 +33,8 @@ const adminSchema =new Schema ({
     },
     token: {
         type: String
-    }
+    },
+    
 })
 // Middleware 'pre'; before save to user collection
 adminSchema.pre('save', function(next){

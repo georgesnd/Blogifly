@@ -8,6 +8,8 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Home from './components/Home'
 import EditorPage from './components/EditorPage'
+import Profile from './components/Profile'
+
 
 
 function App() {
@@ -17,7 +19,7 @@ function App() {
          <Routes>
          <Route path= '/' exact element={<Login />} />  
          <Route path='/home'  element={<Home/>} /> 
-        {/* <Route path='/profile' exact element={<Profile />}/> */}
+        <Route path='/profile' exact element={<Profile />}/>
         <Route path='/addpost'  element={<AddPost />}/>
         {/* <Route path= '/login' exact element={<Login />} />   */}
         <Route path= '/register'  element={<Register/>} /> 

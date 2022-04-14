@@ -2,32 +2,49 @@ import logo from './images/logo.jpg'
 import {CgProfile} from 'react-icons/cg'
 // import {Dropdown, DropdownButton} from 'react-bootstrap'
 import '../stylesAdmin/admin.css'
-import DropDown from './DropDown'
+// import DropDown from './DropDown'
 import {AiOutlineHome} from 'react-icons/ai'
 import {FiEdit, FiMusic} from 'react-icons/fi' 
 import {FaRegHandshake} from 'react-icons/fa'
 import {GiAirplaneDeparture, GiEyelashes} from 'react-icons/gi'
 import {BiMoviePlay, BiBook} from 'react-icons/bi'
 import {BsPeople} from 'react-icons/bs'
+
 import {MdOutlineFastfood} from 'react-icons/md'
 import HomeContent from './HomeContent'
+
+import { useContext, useEffect, useState } from "react";
+import { AdminContext } from "./context";
+import { Link, useHistory, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 
 function Home() {
+  const { adminData, setAdminData } = useContext(AdminContext);
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    const response = await axios.get("/admin/logout");
 
+    if (response.data.success) {
+      // clear the context
+      setAdminData(null);
+    }
+    // redirect user to home
+    navigate("/");
+  };
   return (
     <div className='adminHomeContainer'>
           <div className='sidecat'>
              <h1>Blog Dashboard</h1>
             <ul className='category'>
                 <li> <span><AiOutlineHome/></span> Blog posts</li>
-                <li> <span><FiEdit/></span> New post</li>
-                <li></li>
+                <li> <span><FiEdit/></span>  <Link className='sideLink' to="/editor"> New post</Link></li> 
+                <li> <span><CgProfile/></span> <Link className='sideLink' to="/profile">Profile</Link></li>
             </ul> 
             <br/>
               <ul className='category'>
-                <li className='topCate'>CATEGORY</li>
+                <li className='topCate'>#TAGS</li>
                 <li> <span><GiAirplaneDeparture/></span> Travel</li>
                 <li> <span><FiMusic/></span> Music</li>
                 <li> <span><FaRegHandshake/></span> Politics</li>
@@ -38,14 +55,16 @@ function Home() {
                 <li> <span><GiEyelashes/></span> Makeup</li>
               </ul>
 
-              <DropDown/>
+              {/* <DropDown/> */}
+              <button className='logoutBt' onClick={handleLogout}>Logout</button>
             </div>
      <div className='adminBody'> 
         <div className='adminTop'>
          <img className='logoImg' src={logo} alt='pic'/> 
             <div className='adminName' >
-            <h5> Admin Name  </h5>
-            <span><CgProfile/></span>
+            <h5> {adminData.username} </h5>
+             
+            <span><Link className='topLink' to="/profile"><CgProfile/></Link></span>
              </div>
         </div>
           <div className='homeContent'><HomeContent/> </div>

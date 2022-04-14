@@ -4,14 +4,14 @@ import { useRef, useState, useContext } from 'react';
 import {Link} from 'react-router-dom'
 import { AdminContext } from './context';
 
-export default function AddPost () {
+export default function AddPost ({post, onSave, onCancel}) {
     const {adminData, setAdminData} = useContext(AdminContext)
     //Context
     
     const [tag, setTag] = useState('')
 
-    const [data, setData] = useState({
-        owner: null,
+    const [data, setData] = useState(post || {
+        owner: adminData?._id,
         body: '',
         title: '',
         subtitle: '',
@@ -20,24 +20,6 @@ export default function AddPost () {
     })
 
     const editorRef = useRef(null);
-
-    const handleSave = async () => {
-
-        if (editorRef.current.getContent()) {
-            // setData({...data, body: editorRef.current.getContent()})
-            console.log('Hande Save:', editorRef.current.getContent())
-            console.log("Admin is:",adminData)
-            console.log('data is', data)
-            data.owner = adminData._id
-    
-            const response = await axios.post('/post/create', data)
-    
-            console.log('response is', response)
-        }
-
-
-
-    }
 
     const handleEditorChange = () => {
         setData({...data, body: editorRef.current.getContent()})
@@ -66,7 +48,7 @@ export default function AddPost () {
 
     <Editor 
          onInit={(evt, editor) => editorRef.current = editor}
-         initialValue=""
+         initialValue={post?.body ?? ""}
          init={{
            height: 500,
            menubar: true,
@@ -94,14 +76,15 @@ export default function AddPost () {
                     data.tags.map((item, idx) => <div style={{border: '1px solid', marginRight: '10px'}}key={idx}>{item} <span onClick={e => handleDeleteTag(idx)} style={{color:'red'}}>x</span></div>)
                    :
 
-                   'No tags added'
+                   'Add a tag'
                }
            </div>
        </div>
 
         <div style={{display: 'flex', justifyContent: "flex-end"}}>
-            <Link to="/home">Home</Link>
-        <button onClick={handleSave}>Save</button>
+            
+        <button onClick={() => onSave(data)}>Save</button>
+        {onCancel && <button onClick={() => onCancel(data)}>Cancel</button>}
         </div>
     </div>
 }
