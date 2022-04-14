@@ -50,7 +50,7 @@ function EditorPage() {
         <div className='adminTop'>
          <img className='logoImg' src={logo} alt='pic'/> 
             <div className='adminName' >
-            <h5> Admin Name  </h5>
+            <h5> Admin </h5>
             <span><CgProfile/></span>
              </div>
         </div>

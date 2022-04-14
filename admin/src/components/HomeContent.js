@@ -12,9 +12,9 @@ export default function HomeContent() {
   // console.log('history is', history)
 
   // States
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
   const [showCommentModal, setShowCommentModal] = useState(false);
-  const [newPost, setNewPost] = useState("");
+  // const [newPost, setNewPost] = useState("");
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState([]);
 
@@ -31,7 +31,7 @@ export default function HomeContent() {
   const { adminData, setAdminData } = useContext(AdminContext);
   // console.log("adminContext:", adminData)
   useEffect(() => {
-    if (!adminData) navigate("/"); // check if user is logged in and if not redirect him to login page
+    if (!adminData) navigate("/"); 
 
     const getData = async () => {
       const response = await axios.get(`/post/list?owner=${adminData._id}`);
@@ -44,16 +44,16 @@ export default function HomeContent() {
     getData();
   }, []);
 
-  const handleLogout = async () => {
-    const response = await axios.get("/admin/logout");
+  // const handleLogout = async () => {
+  //   const response = await axios.get("/admin/logout");
 
-    if (response.data.success) {
-      // clear the context
-      setAdminData(null);
-    }
-    // redirect user to home
-    navigate("/");
-  };
+  //   if (response.data.success) {
+  //     // clear the context
+  //     setAdminData(null);
+  //   }
+  //   // redirect user to home
+  //   navigate("/");
+  // };
 
   const handleSave = async (data) => {
     const response = await axios.patch(`/post/edit/${data._id}`, data);

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useRef, useState, useContext } from 'react';
 import {Link} from 'react-router-dom'
 import { AdminContext } from './context';
+import '../stylesAdmin/homeContent.css'
 
 export default function AddPost ({post, onSave, onCancel}) {
     const {adminData, setAdminData} = useContext(AdminContext)
@@ -83,7 +84,7 @@ export default function AddPost ({post, onSave, onCancel}) {
 
         <div style={{display: 'flex', justifyContent: "flex-end"}}>
             
-        <button onClick={() => onSave(data)}>Save</button>
+        <button className='commentBt' onClick={() => onSave(data)}>Save</button>
         {onCancel && <button onClick={() => onCancel(data)}>Cancel</button>}
         </div>
     </div>

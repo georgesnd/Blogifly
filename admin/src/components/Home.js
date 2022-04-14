@@ -13,9 +13,9 @@ import {BsPeople} from 'react-icons/bs'
 import {MdOutlineFastfood} from 'react-icons/md'
 import HomeContent from './HomeContent'
 
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 import { AdminContext } from "./context";
-import { Link, useHistory, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
@@ -62,7 +62,8 @@ function Home() {
         <div className='adminTop'>
          <img className='logoImg' src={logo} alt='pic'/> 
             <div className='adminName' >
-            <h5> {adminData.username} </h5>
+            {/* <h5> {adminData.username} </h5> */}
+            <h5> Welcome Admin </h5>
              
             <span><Link className='topLink' to="/profile"><CgProfile/></Link></span>
              </div>

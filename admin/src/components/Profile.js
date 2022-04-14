@@ -47,11 +47,6 @@ export default function Profile(){
 
         Object.entries(data).forEach(item => formdata.set(item[0], item[1]))
 
-        // formdata.set('address', data.address )
-        // formdata.set('email', data.email )
-        // formdata.set('username', data.username )
-        // formdata.set('age', data.age )
-
         if (blobFile) formdata.set('image', blobFile, 'profile_image') // add a file and a name
 
         const config = {
@@ -68,79 +63,14 @@ export default function Profile(){
         if (response.data.success) setAdminData({...response.data.user})
     }
 
-    const handleSaveCloudinary = async () => {
-
-        console.log('data is ', data)
-
-        const formdata = new FormData()
-
-        //formdata.address = data.address 
-        formdata.set('_id', adminData._id )
-
-        Object.entries(data).forEach(item => formdata.set(item[0], item[1]))
-
-        // formdata.set('address', data.address )
-        // formdata.set('email', data.email )
-        // formdata.set('username', data.username )
-        // formdata.set('age', data.age )
-
-        if (blobFile) formdata.set('image', blobFile, 'profile_image') // add a file and a name
-
-        const config = {
-
-            headers: {'content-type': 'mulitpart/form-data'}
-        }
-
-        console.log('Handlesave: formdata is', formdata.keys())
-
-        const response = await axios.patch('/admin/profilecloudinary', formdata, config)
-
-        console.log('response from profile is', response)
-
-        if (response.data.success) setAdminData({...response.data.user})
-    }
-
-    const handleSaveAws = async () => {
-
-        console.log('data is ', data)
-
-        const formdata = new FormData()
-
-        //formdata.address = data.address 
-        formdata.set('_id', adminData._id )
-
-        Object.entries(data).forEach(item => formdata.set(item[0], item[1]))
-
-        // formdata.set('address', data.address )
-        // formdata.set('email', data.email )
-        // formdata.set('username', data.username )
-        // formdata.set('age', data.age )
-
-        if (blobFile) formdata.set('image', blobFile, 'profile_image') // add a file and a name
-
-        const config = {
-
-            headers: {'content-type': 'mulitpart/form-data'}
-        }
-
-        console.log('Handlesave: formdata is', formdata.keys())
-
-        const response = await axios.patch('/users/profileaws', formdata, config)
-
-        console.log('response from profile is', response)
-
-        if (response.data.success) setAdminData({...response.data.user})
-    }
 
     const handleImageChange = e => {
 
         console.log('File is', e.currentTarget.files[0])
-        // console.log('File is', e.target.files[0]) 
 
         const file = e.currentTarget.files[0]
 
-        setFileUrl(URL.createObjectURL(file)) // create a url from file user chose and update the state
-
+        setFileUrl(URL.createObjectURL(file)) 
         setBlobFile(e.currentTarget.files[0]) 
     }
 
@@ -213,12 +143,7 @@ export default function Profile(){
 
        </div>
        </div> 
-       {/* <div>
-        <button onClick={handleSaveCloudinary}>Save profile to Cloudinary</button>
-       </div>
-       <div>
-        <button onClick={handleSaveAws}>Save profile to AWS</button>
-       </div> */}
+       
        <Footer/>
     </div>
 }
