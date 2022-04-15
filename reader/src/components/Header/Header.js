@@ -1,20 +1,28 @@
 import './Header.css';
 import logo from '../../assets/logo.png';
+import { Outlet, Link } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
 function Header() {
   return (
+    <>
     <header>
       <img src={logo} />
 
       <nav>
         <ul>
-          <li><a href='#'>Articles</a></li>
-          <li><a href='#'>Inspiration</a></li>
-          <li><a href='#'>About us</a></li>
+          <li><Link to='/'>Articles</Link></li>
+          <li><Link to='/inspiration'>Inspiration</Link></li>
+          <li><Link to='/aboutus'>About us</Link></li>
           <li><a href='#'>Login</a></li>
         </ul>
       </nav>
     </header>
+
+    <Outlet />
+
+    <Footer />
+    </>
   );
 }
 

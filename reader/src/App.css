@@ -2,13 +2,14 @@ body {
   background-color: gainsboro;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  overflow: hidden;
+  width: 1200px;
+  margin: 40px auto 80px;
+  background-color: whitesmoke;
+  /*border: solid 1px gray;*/
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
