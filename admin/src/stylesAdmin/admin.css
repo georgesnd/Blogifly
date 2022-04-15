@@ -56,7 +56,23 @@
 .adminBody{
     /* padding-left: 10%;  */
     width: 80%;
-   
+ 
+}
+.logoutBt {
+    background-color: gold;
+    width: 120px;
+    height: 40px;
+   margin-left: 11%;
+   margin-top: 160px;
+    color: purple;
+    font-weight: bolder;
+    cursor: pointer;
+    border-radius: 10px;
+
+}
+.homeContent {
+    overflow-y: scroll;
+    height: 78vh;
 }
 .sidecat {
   
@@ -76,6 +92,10 @@
     list-style: none;
     padding-left: 30px;
     margin-left: 0;
+}
+.sideLink {
+    text-decoration: none;
+    color: gold;
 }
 
 .sidecat li:hover {
@@ -98,4 +118,3 @@
     width: 250px;
     font-weight: bold;
 }
-    

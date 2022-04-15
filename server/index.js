@@ -20,6 +20,8 @@ const connectToDb= require("./config/db");
 const { application } = require("express");
 connectToDb() 
 
+app.use("/uploads",express.static('./server/uploads'))
+
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });

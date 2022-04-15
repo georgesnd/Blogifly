@@ -4,7 +4,7 @@ const Admin = require('../models/Admin')
 module.exports = async(req, res, next) =>{
     try {
      
-        const token = req.cookies.recapcookie
+        const token = req.cookies.cookiename
         console.log('auth here, token is', token);
         if(!token) return res.status(400).send({success:false})
 
