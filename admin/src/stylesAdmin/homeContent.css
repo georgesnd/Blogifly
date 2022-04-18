@@ -1,0 +1,44 @@
+.postAvatar {
+    display: flex;
+    align-items: center;
+    
+}
+.postAvatar img {
+    margin-right: 10px;
+}
+
+.ediBt {
+    width: 120px;
+    height: 40px;
+    margin-left: 82%;
+    color: gold;
+    font-weight: bolder;
+    background-color: blueviolet;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+  
+}
+.commentBt {
+    width: 120px;
+    height: 40px;
+    margin-right: 4%;
+    color: black;
+    font-weight: bolder;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.postTitle {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+.postSubTitle {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}

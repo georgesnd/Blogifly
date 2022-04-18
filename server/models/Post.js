@@ -14,7 +14,7 @@ const commentSchema= new Schema ({
   })
 const postSchema = new Schema({
   title: String,
-  subTitle: String,
+  subtitle: String,
   owner: {
     type: Schema.Types.ObjectId,
     ref: "Admin",
@@ -38,7 +38,7 @@ const postSchema = new Schema({
     default: Date.now(),
   },
   tags: [],
-});
+}, { timestamps: true });
 
 const Post = mongoose.model("Post", postSchema);
 module.exports = Post;

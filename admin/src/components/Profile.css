@@ -1,0 +1,113 @@
+.profMain {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    padding-top: 60px;
+    padding-bottom: 60px ;
+
+}
+.profBg {
+    width: 100%;
+    background-color: #eee0fd;
+}
+.leftLists {
+    display: flex;
+    justify-content: flex-end;
+}
+.listIcons :hover {
+    background-color: #eee0fd;
+}
+li {
+    list-style: none;
+    font-size: 26px;
+    line-height: 45px;
+}
+.listText li {
+  
+ background-color: #f7f2fb;
+    
+    padding: 2px 20px;
+    border-bottom: 4px solid #eee0fd;
+    color: #50287E
+}
+.listText :hover {
+    background-color: #eee0fd;
+    ;
+}
+.listText {
+    margin-left: -40px;
+    border-right: 2px solid #eee0fd;
+}
+.listIcons li {
+    background-color: #f7f2fb;
+    padding: 4px 10px 0px 10px;
+    border-right: 2px solid #eee0fd;
+    border-bottom: 4px solid #eee0fd;
+    color: #50287E
+   
+}
+.formProf {
+    margin-left: 50px;
+    font-size: 30px;
+}
+
+.adminNameProf span {
+    padding-right: 10px;
+}
+
+.profMenu {
+    display: flex;
+    
+}
+.proflink {
+    text-decoration: none;
+    color: #50287E;
+    margin-left: 30px;
+    font-weight: bolder;
+    font-size: 22px;
+}
+.proflink:hover {
+    background-color: pink;
+}
+.adminNameProf {
+    color: #50287E;
+    font-size: 22px;
+}
+.logoImgProf {
+    width: auto;
+    height: 200px;
+    margin-right: 15%;
+}
+.formProf input {
+    width: 90%;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #f7f2fb ;
+    border: none;
+    margin: 10px 0px 20px;
+    color: rgb(170, 170, 170);
+}
+.formProf {
+  
+    width: 55%;
+    color: rgb(102, 101, 101);
+    padding-left: 30px;
+    font-size: 22px;
+}
+.formProf h4 {
+    font-size: 20px; 
+}
+.saveBT {
+    width: 120px;
+    height: 40px;
+    margin-top: 20px;
+    color: #f7f2fb;
+    font-weight: bolder;
+    background-color: blueviolet;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+

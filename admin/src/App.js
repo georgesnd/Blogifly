@@ -1,6 +1,4 @@
 import './App.css'
-// import Home from './components/Home'
-
 import React from 'react'
 import { Route, Routes} from 'react-router-dom'
 import AddPost from './components/AddPost'
@@ -10,13 +8,14 @@ import Home from './components/Home'
 import ChangePass from './components/ChangePass'
 import EmailConfirm from './components/EmailConfirm'
 import Profile from './components/Profile' 
+import EditorPage from './components/EditorPage'
 
 
 function App() {
 
   return (
     <div className='App'>
-         <Routes>
+    <Routes>
          <Route path= '/' exact element={<Login />} />  
          <Route path='/home'  element={<Home/>} /> 
         <Route path='/profile' exact element={<Profile />}/>
@@ -25,6 +24,7 @@ function App() {
         <Route path= '/register'  element={<Register/>} /> 
         <Route path= '/confirm'  element={<EmailConfirm />} />
         <Route path= '/change'  element={<ChangePass />} />
+        <Route path= '/editor'  element={<EditorPage/>} /> 
     </Routes> 
     </div>
   )  
