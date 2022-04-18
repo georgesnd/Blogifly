@@ -7,7 +7,8 @@ import { UserContext} from './context' ;
 import Logo from './images/logo.jpg'
 
 export default function Login() {
-    const navigate =useNavigate()
+  
+const navigate =useNavigate()
 const {setUserData} = useContext(UserContext) 
 
     const [data, setData] = useState({
@@ -15,11 +16,11 @@ const {setUserData} = useContext(UserContext)
         pass: ''
     }) 
 
-    const handleClick = async e => {
+    const handleClick = async (e) => {
 
         e.preventDefault();
         const response = await axios.post('/admin/login', data)  
-        console.log('reponse is ', response)
+        console.log('response is', response)
 
         if(response.data.success===true) 
         {setUserData(response.data.user)
