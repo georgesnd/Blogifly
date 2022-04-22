@@ -85,7 +85,7 @@ export default function AddPost ({post, onSave, onCancel}) {
         <div style={{display: 'flex', justifyContent: "flex-end"}}>
             
         <button className='commentBt' onClick={() => onSave(data)}>Save</button>
-        {onCancel && <button onClick={() => onCancel(data)}>Cancel</button>}
+        {onCancel && <button className='commentBt' onClick={() => onCancel(data)}>Cancel</button>}
         </div>
     </div>
 }
